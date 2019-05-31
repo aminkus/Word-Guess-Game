@@ -1,5 +1,27 @@
 
-currentWord = ["Jerry", "George", "Kramer", "Newman", "Elaine", "Frank", "Morty"];
+var words = ["Jerry", "George", "Kramer", "Newman", "Elaine", "Frank", "Morty"];
+
+var word = words[Math.floor(Math.random() * words.length)];
+
+var answerArray = [];
+
+for (var i = 0; i < word.length; i++) {
+    answerArray[i] = "_";
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var guessedLetters = [];
 var wins = 0;
 var guessesRemaining = 10
@@ -17,16 +39,11 @@ var chosenLetters = document.getElementById("chosenLetters-text");
 
 document.onkeyup = function(event) {
 
-    var userGuess = event.key;
-
-    var random = currentWord[Math.floor(Math.random() * currentWord.length)];
-
-    if (userGuess === random.split(" ") {
+    
+    var userGuess= event.key;
         
         
     }
 
 
 
-
-}

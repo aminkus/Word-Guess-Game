@@ -9,7 +9,12 @@ var word = words[Math.floor(Math.random() * words.length)];
 for (var i = 0; i < word.length; i++) {
     answerArray[i] = "_ ";
 }
-
+function reset () {
+    var wins = 0;
+    word;
+    guessesRemaining = 10;
+    answerArray = 0;
+}
 
 
 var winsText = document.getElementById("wins-text");
@@ -29,10 +34,24 @@ document.onkeyup = function(event) {
  
 
 
+if (guessesRemaining > 0) {
+
+  
     if (word.indexOf(userGuess) >= 0) {
         answerArray[matchingLetter] = userGuess;
     }
-  
+    else if 
+        (word.indexOf(userGuess == -1)) { 
+            guessesRemaining--;
+        }
+
+    } else {
+        alert ("YOU LOSE!")
+    }
+
+
+
+
    
    
         
@@ -40,7 +59,7 @@ document.onkeyup = function(event) {
         winsText.textContent = wins;
         guessesRemainingText.textContent = guessesRemaining;
         guessedLettersText.textContent = guessedLetters;
-        answerArrayText.textContent = answerArray.join(" ");
+        answerArrayText.textContent = answerArray;
 
     };
 

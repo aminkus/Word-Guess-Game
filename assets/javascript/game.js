@@ -1,10 +1,10 @@
 //create array of words to be guessed by user
-var words = ["jerry"];
+var words = ["jerry", "george", "elaine", "frank", "morty"];
 //create variables to store wins, losses, guessed letters, and answer
 var guessedLetters = [];
 var wins = 0;
 var guessesRemaining = 10
-var answerArray=[];
+var answerArray = [];
 
 //create loop that puts an underscore in place of each letter 
 var word = words[Math.floor(Math.random() * words.length)];
@@ -23,45 +23,41 @@ var answerArrayText = document.getElementById("answer-text")
 
 
 
-document.onkeyup = function(event) {
+document.onkeyup = function (event) {
 
     //create event listener
     var userGuess = event.key.toLowerCase();
-    
+
+    var isLetterInWord = false;
 
 
-for(var i = 0; i < word.length; i++) {
-    if (word[i] === userGuess) {
-        answerArray[i] = userGuess;
-    }
-}
-     if 
-        (word.indexOf(userGuess) == -1) { 
-            guessesRemaining--;
+    for (var j = 0; j < word.length; j++) {
+        if (word[j] === userGuess) {
+            answerArray[j] = userGuess;
+            isLetterInWord = true;
         }
-    
+    }
+    if (isLetterInWord == false) {
 
-
-
-
-  
-
-
-
-   
-   
-        
-
-        winsText.textContent = wins;
-        guessesRemainingText.textContent = guessesRemaining;
-        guessedLettersText.textContent = guessedLetters;
-        answerArrayText.textContent = answerArray;
-
-    };
+        guessedLetters.push(userGuess);
+        guessesRemaining--;
+    }
+    if (answerArray.join("") === word) {
+        wins++
+    }
 
     
 
+    winsText.textContent = wins;
+    guessesRemainingText.textContent = guessesRemaining;
+    guessedLettersText.textContent = guessedLetters;
+    answerArrayText.textContent = answerArray;
+
+};
 
 
-    
+
+
+
+
 
